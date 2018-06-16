@@ -1,22 +1,18 @@
 ---
 # The main playbook for testing
 - hosts: rally
-  tasks:
-  - name: sample task
-    debug:
-        msg: Hello, World!
-  handlers:
-  - name: post processing
-    debug:
-        msg: Byebye!
 
-- hosts: rally
   tasks:
-  - name: sample task 2
-    debug:
-        msg: Hello, World 2!
+    - name: sample task
+      debug:
+        msg: Hello, World!
+      changed_when: true
+      notify: post processing
+
   handlers:
-  - name: post processing
-    debug:
-        msg: Byebye 2!
+    - name: handler 1
+      become: yes
+      apt:
+        update_cache: yes
+      listen: post processing
 ...
