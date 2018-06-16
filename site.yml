@@ -1,0 +1,22 @@
+---
+# The main playbook for testing
+- hosts: rally
+  tasks:
+  - name: sample task
+    debug:
+        msg: Hello, World!
+  handlers:
+  - name: post processing
+    debug:
+        msg: Byebye!
+
+- hosts: rally
+  tasks:
+  - name: sample task
+    debug:
+        msg: Hello, World!
+  handlers:
+  - name: post processing
+    debug:
+        msg: Byebye!
+...

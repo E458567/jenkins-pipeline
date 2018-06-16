@@ -1,0 +1,2 @@
+[rally]
+localhost ansible_connect=local
