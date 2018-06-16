@@ -12,11 +12,11 @@
 
 - hosts: rally
   tasks:
-  - name: sample task
+  - name: sample task 2
     debug:
-        msg: Hello, World!
+        msg: Hello, World 2!
   handlers:
   - name: post processing
     debug:
-        msg: Byebye!
+        msg: Byebye 2!
 ...

@@ -1,2 +1,3 @@
 [rally]
-localhost ansible_connect=local
+54.174.113.202 ansible_user=user
+54.145.206.86 ansible_user=user
