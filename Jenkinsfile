@@ -19,13 +19,13 @@ pipeline {
         stage('Node #1') {
           steps {
             echo 'Release machine node #1 in MAAS ...'
-            echo 'Deploy machine node #1 in MAAS ...'
+              echo 'Deploy machine node #1 in MAAS ...'
           }
         }
         stage('Node #2') {
           steps {
             echo 'Release machine node #2 in MAAS'
-            echo 'Deploy machine node #2 in MAAS'
+              echo 'Deploy machine node #2 in MAAS'
           }
         }
       }
@@ -52,13 +52,13 @@ pipeline {
     stage('Install Ansible') {
       steps {
         echo 'Setup virtual environment'
-        echo 'Install Ansible via pip'
+          echo 'Install Ansible via pip'
       }
     }
     stage('Install OpenStack') {
       steps {
         echo 'Generate passwords YAML file'
-        echo 'Run Ansible playbook.yml'
+          echo 'Run Ansible playbook.yml'
       }
     }
     stage('Boot VM & Ping') {
@@ -108,6 +108,12 @@ pipeline {
           }
         }
       }
+    }
+  }
+  post { 
+    always { 
+      sh "cp /Users/ansible/tempest-image-report.html $WORKSPACE/tempest-report.html"
+      archiveArtifacts artifacts: 'tempest-report.html', fingerprint: true
     }
   }
 }
