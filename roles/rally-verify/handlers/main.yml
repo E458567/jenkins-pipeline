@@ -4,4 +4,10 @@
 - name: generate rally verify report 
   command: rally verify report --type html-static --to ./tempest-report.html
 
+- name: fetch report from remote OpenStack node
+  fetch:
+    src: tempest-report.html
+    dest: ./
+    flat: yes
+
 ...

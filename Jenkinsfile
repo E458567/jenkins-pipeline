@@ -112,8 +112,8 @@ pipeline {
   }
   post { 
     always { 
-      sh "cp /Users/ansible/tempest-image-report.html $WORKSPACE/tempest-report.html"
-      sh "cp /Users/ansible/rally-task-report.html $WORKSPACE/rally-task-report.html"
+      // sh "cp /Users/ansible/tempest-image-report.html $WORKSPACE/tempest-report.html"
+      // sh "cp /Users/ansible/rally-task-report.html $WORKSPACE/rally-task-report.html"
       archiveArtifacts artifacts: 'tempest-report.html', fingerprint: true
       archiveArtifacts artifacts: 'rally-task-report.html', fingerprint: true
     }

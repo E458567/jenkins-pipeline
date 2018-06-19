@@ -4,4 +4,10 @@
 - name: generate rally task report
   command: rally task report --html-static --out=./rally-task-report.html
 
+- name: fetch report from remote OpenStack node
+  fetch:
+    src: rally-task-report.html
+    dest: ./
+    flat: yes
+
 ...
