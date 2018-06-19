@@ -1,0 +1,2 @@
+# full, smoke, compute, identity, image, network, object_storage, orchestration, volume, scenario
+tempest_suite: smoke

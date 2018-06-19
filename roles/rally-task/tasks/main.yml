@@ -1,5 +1,12 @@
 ---
 # role for running rally task
 
-- name: rally task
+- name: activate rally virtual environment
+  command: source /home/rally/rally/bin/activate
 
+- name: run rally task (i.e. scenario based tests)
+  command: rally task start {{ task_input_file }}
+  notify:
+    - generate rally task report
+
+...
