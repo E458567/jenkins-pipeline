@@ -4,9 +4,6 @@
 - name: activate rally virtual environment 
   command: source /home/rally/rally/bin/activate
 
-- name: list all verifications
-  command: rally verify list
-
 - name: run tempest verifier tests
   command: rally verify start --pattern set={{ tempest_suite }}
   notify:

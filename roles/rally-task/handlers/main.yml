@@ -2,5 +2,6 @@
 # handlers for rally task command
 
 - name: generate rally task report
+  command: rally task report --html-static --out=./rally-task-report.html
 
 ...

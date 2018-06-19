@@ -1,10 +1,7 @@
 ---
 # Ansible role for running rally task (e.g., scenarios)
 
-- name: rally-task
-  debug:
-    msg: Hello
-  notify:
-    - generate rally task report
+- name: generate rally verify report 
+  command: rally verify report --type html-static --to ./tempest-report.html
 
 ...
