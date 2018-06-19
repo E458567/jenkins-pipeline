@@ -1,0 +1,10 @@
+---
+# Ansible role for running rally verify (e.g., tempest)
+
+- name: rally-verify-tempest
+  debug:
+    msg: Hello
+  notify:
+    - generate rally verify report
+
+...

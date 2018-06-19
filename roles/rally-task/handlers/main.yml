@@ -1,0 +1,6 @@
+---
+# handlers for rally task command
+
+- name: generate rally task report
+
+...

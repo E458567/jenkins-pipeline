@@ -1,0 +1,5 @@
+---
+# role for running rally task
+
+- name: rally task
+
