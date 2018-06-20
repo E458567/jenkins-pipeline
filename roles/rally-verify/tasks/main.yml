@@ -3,7 +3,6 @@
 
 - name: run tempest tests as rally verifier
   shell: "source {{ rally_home }}/bin/activate && rally verify start --pattern set={{ tempest_suite }}"
-  shell: "echo hello"
   args:
     executable: /bin/bash
   notify:
