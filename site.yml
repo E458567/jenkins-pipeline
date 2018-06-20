@@ -2,10 +2,17 @@
 # The main playbook for testing
 
 - hosts: rally
-  environment:
-    PATH: "{{ ansible_env.PATH }}"
   roles: 
     - rally-verify
+  tags:
+    - testing-tempest
+
+
+
+- hosts: rally
+  roles:
     - rally-task
+  tags:
+    - testing-rally
 
 ...

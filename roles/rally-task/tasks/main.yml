@@ -11,9 +11,12 @@
   args:
     chdir: "{{ rally_home }}"
     executable: /bin/bash
-
   notify:
     - generate rally task report
     - fetch rally task report
+  register: rally
+
+- debug:
+    var: rally.stdout_lines
 
 ...

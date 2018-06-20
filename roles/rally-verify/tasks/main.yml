@@ -8,5 +8,9 @@
   notify:
     - generate rally verify report
     - fetch rally verify report
+  register: tempest
+
+- debug:
+    var: tempest.stdout_lines
 
 ...
