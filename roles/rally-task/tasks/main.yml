@@ -1,12 +1,19 @@
 ---
 # role for running rally task
 
-- name: activate rally virtual environment
-  command: source /home/rally/rally/bin/activate
+- name: copy custom rally task file to remote
+  copy:
+    src: "{{ task_input_file }}"
+    dest: "{{ rally_home }}"
 
-- name: run rally task (i.e. scenario based tests)
-  command: rally task start {{ task_input_file }}
+- name: run rally tasks (scenario based tests / benchmarks)
+  shell: "source {{ rally_home }}/bin/activate && rally task start {{ task_input_file }}"
+  args:
+    chdir: "{{ rally_home }}"
+    executable: /bin/bash
+
   notify:
     - generate rally task report
+    - fetch rally task report
 
 ...

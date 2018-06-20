@@ -1,1 +1,2 @@
+rally_home: /home/ubuntu/rally
 task_input_file: test-scenarios.yml

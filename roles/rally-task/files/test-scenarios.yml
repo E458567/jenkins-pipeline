@@ -1,42 +1,20 @@
-{% set flavor_name = flavor_name or "m1.tiny" %}
+{% set image_location = image_location or "http://download.cirros-cloud.net/0.4.0/cirros-0.4.0-x86_64-disk.img" %}
 ---
-  NovaServers.boot_and_delete_server:
+  GlanceImages.list_images:
     -
-      args:
-        flavor:
-            name: "{{flavor_name}}"
-        image:
-            name: "^cirros.*-disk$"
-        force_delete: false
       runner:
         type: "constant"
         times: 10
-        concurrency: 2
+        concurrency: 1
       context:
         users:
-          tenants: 3
+          tenants: 2
           users_per_tenant: 2
-      sla:
-        failure_rate:
-          max: 0
-    -
-      args:
-        flavor:
-            name: "{{flavor_name}}"
-        image:
-            name: "^cirros.*-disk$"
-        auto_assign_nic: true
-      runner:
-        type: "constant"
-        times: 10
-        concurrency: 2
-      context:
-        users:
-          tenants: 3
-          users_per_tenant: 2
-        network:
-          start_cidr: "10.2.0.0/24"
-          networks_per_tenant: 2
+        images:
+          image_url: "{{ image_location }}"
+          disk_format: "qcow2"
+          container_format: "bare"
+          images_per_tenant: 4
       sla:
         failure_rate:
           max: 0

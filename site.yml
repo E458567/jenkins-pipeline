@@ -2,6 +2,8 @@
 # The main playbook for testing
 
 - hosts: rally
+  environment:
+    PATH: "{{ ansible_env.PATH }}"
   roles: 
     - rally-verify
     - rally-task

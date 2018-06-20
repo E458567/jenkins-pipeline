@@ -2,9 +2,11 @@
 # Ansible role for running rally task (e.g., scenarios)
 
 - name: generate rally verify report 
-  command: rally verify report --type html-static --to ./tempest-report.html
+  shell: "source {{ rally_home }}/bin/activate && rally verify report --type html-static --to ./tempest-report.html"
+  args:
+    executable: /bin/bash
 
-- name: fetch report from remote OpenStack node
+- name: fetch rally verify report
   fetch:
     src: tempest-report.html
     dest: ./

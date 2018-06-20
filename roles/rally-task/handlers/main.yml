@@ -2,9 +2,11 @@
 # handlers for rally task command
 
 - name: generate rally task report
-  command: rally task report --html-static --out=./rally-task-report.html
+  shell: "source {{ rally_home }}/bin/activate && rally task report --html-static --out=./rally-task-report.html"
+  args:
+    executable: /bin/bash
 
-- name: fetch report from remote OpenStack node
+- name: fetch rally task report
   fetch:
     src: rally-task-report.html
     dest: ./
